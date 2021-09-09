@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     private fun getDataFromAPI(){
 
         disposable.add(
-            youtubeApiService.getDataService("AIzaSyB4cpn75emuo45iathwp6oN0TzO74k9g2s","snippet","date","50","video")
+            youtubeApiService.getDataService("AIzaSyB4cpn75emuo45iathwp6oN0TzO74k9g2s","snippet","date","50","TR","video")
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<youtubeModel>() {

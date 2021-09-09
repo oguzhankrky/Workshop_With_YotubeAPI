@@ -14,6 +14,7 @@ interface YoutubeAPI {
         @Query("part")  part:String,
         @Query("order") order:String,
         @Query("maxResults") maxResults:String,
+        @Query("regionCode") regionCode:String,
         @Query("type") type:String,
 
     ): Single<youtubeModel>
