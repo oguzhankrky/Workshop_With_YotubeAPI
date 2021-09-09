@@ -28,8 +28,9 @@ class VideolarViewHolder(container: ViewGroup) :
         )
     ) {
 
-    val Videoİmage: ImageView = itemView.findViewById(R.id.imgProfilePhoto)
+    val Videoİmage: ImageView = itemView.findViewById(R.id.videoPhoto)
     val Videotext: TextView = itemView.findViewById(R.id.videoName)
+
     fun bind(youtubeItem: Item) {
 
         Picasso.get().load(youtubeItem.snippet.thumbnails.high.url).into(Videoİmage)

@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.workshopwithyotubeapi.R
 import com.example.workshopwithyotubeapi.databinding.ActivityMainBinding
@@ -13,6 +15,7 @@ import com.example.workshopwithyotubeapi.model.youtubeModel
 import com.example.workshopwithyotubeapi.service.youtubeApıService
 
 import com.example.workshopwithyotubeapi.view.Video.VideoAdapter
+import com.example.workshopwithyotubeapi.viewmodel.ListVideoViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
@@ -21,52 +24,34 @@ import io.reactivex.schedulers.Schedulers
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
 
-    private val youtubeApiService = youtubeApıService()
-    private val disposable = CompositeDisposable()
+    private lateinit var viewModel: ListVideoViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         ActivityMainBinding()
 
+        viewModel = ViewModelProviders.of(this).get(ListVideoViewModel::class.java)
         binding.recyclerview1.layoutManager = LinearLayoutManager(this)
 
-        getDataFromAPI()
+        viewModel.getDataFromAPI()
+        getLiveData()
+
+
+
 
     }
 
-    /*
-    https://www.googleapis.com/youtube/v3/search?
-    key=AIzaSyB4cpn75emuo45iathwp6oN0TzO74k9g2s
-    &part=snippet
-    &order=date
-    &maxResult=50
-    &type=video
+    private fun getLiveData(){
+        viewModel.wmDataKeeper.observe(this, Observer { data ->
+            data?.let {
+                binding.recyclerview1.adapter = VideoAdapter(data.items)
+            }
 
-    */
-    private fun getDataFromAPI(){
-
-        disposable.add(
-            youtubeApiService.getDataService("AIzaSyB4cpn75emuo45iathwp6oN0TzO74k9g2s","snippet","date","50","TR","video")
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : DisposableSingleObserver<youtubeModel>() {
-
-                    override fun onSuccess(wmData: youtubeModel) {
-
-                        binding.recyclerview1.adapter = VideoAdapter(wmData.items)
-
-                    }
-
-                    override fun onError(e: Throwable) {
-
-
-                    }
-
-                })
-        )
-
+        })
     }
+
+
 
 
 
