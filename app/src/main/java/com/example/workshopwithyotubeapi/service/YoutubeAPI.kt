@@ -26,8 +26,7 @@ interface YoutubeAPI {
 
 /*
 https://www.googleapis.com/youtube/v3/search?
-key=AIzaSyB4cpn75emuo45iathwp6oN0TzO74k9g2s
-&channelId=UCmHksmZ3yVMBjEf5faWMmYw
+key=AIzaSyD9IhAJjjG9xsaNBiiEf8NI69xV7LGfXwk
 &part=snippet
 &order=date
 &maxResult=50

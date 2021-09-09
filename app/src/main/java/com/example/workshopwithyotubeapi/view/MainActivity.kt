@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.getDataFromAPI()
         getLiveData()
-
+        DoRefresh()
 
 
 
@@ -50,7 +50,12 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
-
+    private fun DoRefresh(){
+        binding.refreshlayout.setOnRefreshListener {
+            viewModel.refreshData()
+            binding.refreshlayout.isRefreshing=false
+        }
+    }
 
 
 

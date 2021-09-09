@@ -24,7 +24,8 @@ class youtubeApıService{
 
 
 /*
-https://www.googleapis.com/youtube/v3/search?key=AIzaSyB4cpn75emuo45iathwp6oN0TzO74k9g2s
+https://www.googleapis.com/youtube/v3/search?
+key=AIzaSyCmGg37lgh9nEjx7buVRoYIsczvXz43uxM
 &channelId=UCmHksmZ3yVMBjEf5faWMmYw
 &part=snippet
 &order=date

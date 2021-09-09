@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">WorkshopWithYotubeAPI</string>
-    <string name="api_key">AIzaSyB4cpn75emuo45iathwp6oN0TzO74k9g2s</string>
+    <string name="api_key">AIzaSyD9IhAJjjG9xsaNBiiEf8NI69xV7LGfXwk</string>
     <string name="title_activity_video">VideoActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
