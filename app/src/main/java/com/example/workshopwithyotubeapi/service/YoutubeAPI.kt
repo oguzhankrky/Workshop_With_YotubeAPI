@@ -1,7 +1,9 @@
 package com.example.workshopwithyotubeapi.service
 
+import androidx.annotation.Nullable
 import com.example.workshopwithyotubeapi.model.youtubeModel
 import io.reactivex.Single
+import org.jetbrains.annotations.NotNull
 import retrofit2.http.GET
 import retrofit2.http.Part
 import retrofit2.http.Query
@@ -10,14 +12,14 @@ import retrofit2.http.Query
 interface YoutubeAPI {
     @GET("search")
     fun getData(
-        @Query("key") key:String,
-        @Query("part")  part:String,
-        @Query("order") order:String,
-        @Query("maxResults") maxResults:String,
-        @Query("regionCode") regionCode:String,
-        @Query("type") type:String,
+        @Query("key")    @NotNull key:String = "0",
+        @Query("part")     @Nullable part:String?,
+        @Query("order")    @Nullable order:String?,
+        @Query("maxResults")     @Nullable maxResults:String?,
+        @Query("regionCode")     @Nullable regionCode:String?,
+        @Query("type")     @Nullable type:String?,
 
-    ): Single<youtubeModel>
+        ): Single<youtubeModel>
 
     /*fun getData(
         @Query("q") cityName:String
@@ -31,10 +33,6 @@ key=AIzaSyD9IhAJjjG9xsaNBiiEf8NI69xV7LGfXwk
 &order=date
 &maxResult=50
 &type=video
-
-
-
-
 
 
 */
