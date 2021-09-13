@@ -18,7 +18,7 @@ interface YoutubeAPI {
         @Query("maxResults")     @Nullable maxResults:String?,
         @Query("regionCode")     @Nullable regionCode:String?,
         @Query("type")     @Nullable type:String?,
-
+        @Query("q")   @NotNull searchWord:String="popular",
         ): Single<youtubeModel>
 
     /*fun getData(

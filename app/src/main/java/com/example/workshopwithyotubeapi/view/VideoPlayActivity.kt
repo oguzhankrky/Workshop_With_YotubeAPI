@@ -11,6 +11,7 @@ import com.example.workshopwithyotubeapi.model.youtubeModel
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
+import java.util.*
 import java.util.regex.Pattern
 
 class VideoPlayActivity : YouTubeBaseActivity() {
@@ -67,7 +68,7 @@ class VideoPlayActivity : YouTubeBaseActivity() {
 
 
     fun getYoutubeVideoIdFromUrl(inUrl: String): String? {
-        if (inUrl.toLowerCase().contains("youtu.be"))
+        if (inUrl.lowercase(Locale.getDefault()).contains("youtu.be"))
         {
             return inUrl.substring(inUrl.lastIndexOf("/")+1)
          }

@@ -21,14 +21,14 @@ class ListVideoViewModel: ViewModel() {
     private val disposable = CompositeDisposable()
     internal val wmDataKeeper = MutableLiveData<youtubeModel>()
 
-    fun refreshData() {
-        getDataFromAPI()
+    fun refreshData(searchWord:String) {
+        getDataFromAPI(searchWord)
     }
 
-    fun getDataFromAPI(){
+    private fun getDataFromAPI(searchWord:String){
 
         disposable.add(
-            youtubeApiService.getDataService("AIzaSyD9IhAJjjG9xsaNBiiEf8NI69xV7LGfXwk","snippet","date","50","TR","video")
+            youtubeApiService.getDataService("AIzaSyD9IhAJjjG9xsaNBiiEf8NI69xV7LGfXwk","snippet","date","50","TR","video",searchWord)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<youtubeModel>() {

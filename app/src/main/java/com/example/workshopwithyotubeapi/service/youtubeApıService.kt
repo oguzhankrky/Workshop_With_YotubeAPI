@@ -15,8 +15,8 @@ class youtubeApıService{
         .build()
         .create(YoutubeAPI::class.java)
 
-    fun getDataService(key:String,part:String,order:String,maxResults:String,regionCode:String,type:String): Single<youtubeModel> {
-        return api.getData(key,part,order,maxResults,regionCode,type)
+    fun getDataService(key:String,part:String,order:String,maxResults:String,regionCode:String,type:String,searchWord:String): Single<youtubeModel> {
+        return api.getData(key,part,order,maxResults,regionCode,type,searchWord)
     }
 
 
