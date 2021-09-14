@@ -20,14 +20,20 @@ class VideoPlayActivity : YouTubeBaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_play)
         ActivityVideoPlayBinding()
+        getYoutubeVideoIdFromUrlLiveData()
 
-        getYoutubeVideoIdFromUrl("https://www.youtube.com/watch?v=VRPo57hmqb0")?.let {
+
+
+    }
+
+    private fun getYoutubeVideoIdFromUrlLiveData()
+    {
+        var videoId= intent.getStringExtra("videoId")
+        getYoutubeVideoIdFromUrl("https://www.youtube.com/watch?v=$videoId")?.let {
             initilizePlayer(
                 it
             )
         }
-
-
     }
 
     private fun ActivityVideoPlayBinding()

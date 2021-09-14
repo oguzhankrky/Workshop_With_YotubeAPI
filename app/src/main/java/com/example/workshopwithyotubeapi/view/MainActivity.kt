@@ -1,6 +1,7 @@
 package com.example.workshopwithyotubeapi.view
 
 
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.workshopwithyotubeapi.R
+import com.example.workshopwithyotubeapi.databinding.ActivityDetayBinding
 import com.example.workshopwithyotubeapi.databinding.ActivityMainBinding
 import com.example.workshopwithyotubeapi.hideKeyboard
 import com.example.workshopwithyotubeapi.view.Video.VideoAdapter
@@ -15,6 +17,7 @@ import com.example.workshopwithyotubeapi.viewmodel.ListVideoViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
+    private lateinit var binding2 : ActivityDetayBinding
     private lateinit var GET: SharedPreferences
     private lateinit var SET: SharedPreferences.Editor
     private lateinit var viewModel: ListVideoViewModel
@@ -26,12 +29,16 @@ class MainActivity : AppCompatActivity() {
         SET = GET.edit()
 
         ActivityMainBinding()
+
         firstInitialviewModel()
         getLiveData()
         RefreshPage()
         whenPushSearchButton()
 
+
     }
+
+
     fun firstInitialviewModel(){
 
         viewModel = ViewModelProvider(this).get(ListVideoViewModel::class.java)
@@ -63,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.wmDataKeeper.observe(this, Observer { data ->
             data?.let {
                 binding.recyclerview1.adapter = VideoAdapter(data.items)
+
             }
 
         })
@@ -86,6 +94,11 @@ class MainActivity : AppCompatActivity() {
     {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
+    private fun DetailBinding()
+    {
+        binding2 = ActivityDetayBinding.inflate(layoutInflater)
+        setContentView(binding2.root)
     }
 
 
