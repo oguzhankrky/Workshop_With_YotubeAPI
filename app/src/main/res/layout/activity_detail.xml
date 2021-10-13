@@ -15,44 +15,39 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:layout_margin="@dimen/fab_margin"
             tools:ignore="ExtraText">
-            android:id="@+id/cardview1"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            app:cardBackgroundColor="#FFFF"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="5dp"
-            app:cardUseCompatPadding="true">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/stroked_background">
 
-                <ImageView
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/videoPhoto"
                     android:layout_width="90dp"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
                     android:scaleType="fitCenter"
-                    android:contentDescription="@string/picture" />
+                    android:layout_margin="4dp"
+                    android:contentDescription="@string/picture"
+                    app:shapeAppearanceOverlay="@style/CircleImageView"
+                    app:strokeWidth="2dp"
+                    app:strokeColor="#FF3700B3"  />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="16dp">
 
                     <TextView
-                        android:layout_marginTop="5dp"
                         android:id="@+id/videoName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/videoname"
                         android:textColor="@android:color/black" />
-
-
-
 
                 </LinearLayout>
 

@@ -10,10 +10,28 @@
     <com.google.android.youtube.player.YouTubePlayerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/youtubeplayer"
-
-        >
-
-
+        android:id="@+id/youtubeplayer">
     </com.google.android.youtube.player.YouTubePlayerView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/Button_ComeBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Come Back to List"
+            />
+
+        <ImageButton
+            android:id="@+id/addFavouriteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="#00ffffff"
+            android:src="@android:drawable/btn_star" />
+
+    </LinearLayout>
 </LinearLayout>

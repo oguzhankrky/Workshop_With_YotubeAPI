@@ -2,6 +2,7 @@ package com.example.workshopwithyotubeapi.service
 
 import com.example.workshopwithyotubeapi.model.youtubeModel
 import io.reactivex.Single
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,8 +16,11 @@ class youtubeApıService{
         .build()
         .create(YoutubeAPI::class.java)
 
-    fun getDataService(key:String,part:String,order:String,maxResults:String,regionCode:String,type:String,searchWord:String): Single<youtubeModel> {
+    fun getDataService(key:String,part:String,order:String,maxResults:String,regionCode:String,type:String,searchWord:String): Call<youtubeModel> {
         return api.getData(key,part,order,maxResults,regionCode,type,searchWord)
+    }
+    fun getDataServiceForFavourite(key:String,part:String,order:String,maxResults:String,regionCode:String,type:String,V:String): Call<youtubeModel> {
+        return api.getData(key,part,order,maxResults,regionCode,type,V)
     }
 
 

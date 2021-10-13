@@ -4,6 +4,7 @@ import androidx.annotation.Nullable
 import com.example.workshopwithyotubeapi.model.youtubeModel
 import io.reactivex.Single
 import org.jetbrains.annotations.NotNull
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Part
 import retrofit2.http.Query
@@ -13,13 +14,14 @@ interface YoutubeAPI {
     @GET("search")
     fun getData(
         @Query("key")    @NotNull key:String = "0",
-        @Query("part")     @Nullable part:String?,
-        @Query("order")    @Nullable order:String?,
-        @Query("maxResults")     @Nullable maxResults:String?,
-        @Query("regionCode")     @Nullable regionCode:String?,
-        @Query("type")     @Nullable type:String?,
+        @Query("part")     @Nullable part:String?= null ,
+        @Query("order")    @Nullable order:String? = null ,
+        @Query("maxResults")     @Nullable maxResults:String? = null,
+        @Query("regionCode")     @Nullable regionCode:String? = null,
+        @Query("type")     @Nullable type:String? = null,
         @Query("q")   @NotNull searchWord:String="popular",
-        ): Single<youtubeModel>
+        @Query("v")   @Nullable V:String?=null,
+    ): Call<youtubeModel>
 
     /*fun getData(
         @Query("q") cityName:String
